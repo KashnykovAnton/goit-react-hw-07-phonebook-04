@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const contactsAPI = createApi({
+export const contactsSlice = createApi({
   reducerPath: 'contactsAPI',
   tagTypes: ['Contacts'],
   baseQuery: fetchBaseQuery({
@@ -39,4 +39,4 @@ export const {
   useGetContactsQuery,
   useAddContactMutation,
   useDeleteContactMutation,
-} = contactsAPI;
+} = contactsSlice;

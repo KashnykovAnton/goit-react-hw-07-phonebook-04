@@ -3,7 +3,7 @@ import {
   useGetContactsQuery,
   useAddContactMutation,
   useDeleteContactMutation,
-} from 'redux/contacts/RTK';
+} from 'redux/contacts/contactsSlice';
 
 function App() {
   const [newContact, setNewContact] = useState('');

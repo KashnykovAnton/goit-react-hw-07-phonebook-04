@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import { useGetContactsQuery, useAddContactMutation } from 'redux/contacts/RTK';
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from 'redux/contacts/contactsSlice';
 
-export default function ContactForm() {
+export default function ContactsForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const { data = [] } = useGetContactsQuery();
@@ -73,6 +76,6 @@ export default function ContactForm() {
   );
 }
 
-ContactForm.propTypes = {
+ContactsForm.propTypes = {
   state: PropTypes.objectOf(PropTypes.string),
 };

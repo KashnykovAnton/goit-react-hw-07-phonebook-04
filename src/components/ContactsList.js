@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
-import ContactListItem from './ContactListItem';
-import { useGetContactsQuery } from 'redux/contacts/RTK';
+import ContactsListItem from './ContactsListItem';
+import { useGetContactsQuery } from 'redux/contacts/contactsSlice';
 
-export default function ContactList() {
+export default function ContactsList() {
   const {
     data = [],
     error,
@@ -12,7 +12,7 @@ export default function ContactList() {
     refetchOnFocus: true,
   });
 
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(state => state.filter.value);
 
   const filteredContacts = useMemo(() => {
     const normalizedFilter = filter.toLowerCase();
@@ -30,7 +30,7 @@ export default function ContactList() {
       <ul>
         {!isFetching &&
           filteredContacts.map(({ id, name, number }) => (
-            <ContactListItem key={id} id={id} name={name} number={number} />
+            <ContactsListItem key={id} id={id} name={name} number={number} />
           ))}
       </ul>
       {data.length === 0 && !isFetching && (

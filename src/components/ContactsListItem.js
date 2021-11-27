@@ -1,6 +1,6 @@
-import { useDeleteContactMutation } from 'redux/contacts/RTK';
+import { useDeleteContactMutation } from 'redux/contacts/contactsSlice';
 
-export default function ContactList({ id, name, number }) {
+export default function ContactsList({ id, name, number }) {
   const [deleteContact] = useDeleteContactMutation();
 
   const onDelete = id => deleteContact(id);

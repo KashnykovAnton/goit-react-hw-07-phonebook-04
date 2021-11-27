@@ -1,16 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { contactsActions } from 'redux/contacts';
-// import { filterContact } from 'redux/contacts/filterSlice';
+import { filterContact } from 'redux/contacts/filterSlice';
 
-export default function Component() {
-  const filter = useSelector(state => state.filter);
+export default function ContactsFilter() {
+  const filter = useSelector(state => state.filter.value);
   const dispatch = useDispatch();
   const changeFilter = useCallback(
     e => {
-      dispatch(contactsActions.filterContact(e.target.value));
-      // dispatch(filterContact(e.target.value));
+      dispatch(filterContact(e.target.value));
     },
     [dispatch],
   );
