@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import ContactsListItem from './ContactsListItem';
 import { useGetContactsQuery } from 'redux/contacts/contactsSlice';
+import { contactsSelectors } from 'redux/contacts';
 
 export default function ContactsList() {
   const {
@@ -12,7 +13,7 @@ export default function ContactsList() {
     refetchOnFocus: true,
   });
 
-  const filter = useSelector(state => state.filter.value);
+  const filter = useSelector(contactsSelectors.getFilter);
 
   const filteredContacts = useMemo(() => {
     const normalizedFilter = filter.toLowerCase();
