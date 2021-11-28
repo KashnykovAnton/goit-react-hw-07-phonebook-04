@@ -7,9 +7,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { contactsSlice } from './contacts/contactsSlice';
+import { contactsSlice } from 'redux/contacts/contactsSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { filter } from './contacts/filterSlice';
+import { filter } from 'redux/contacts/filterSlice';
 
 export const store = configureStore({
   reducer: {
